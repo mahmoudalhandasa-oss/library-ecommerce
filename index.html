@@ -40,6 +40,379 @@
     margin: 0 10px;
   }
 }
+
+/* Responsive layout for tablets, phones, and narrow screens. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  min-width: 0;
+}
+
+.book-grid,
+.world-language-grid,
+.path-grid,
+.features,
+.footer-main,
+.lesson-list,
+.code-explanation li {
+  min-width: 0;
+}
+
+.book-info h3,
+.book-info p,
+.drawer-content,
+.lesson-page,
+.world-lesson,
+.about-copy,
+.faq {
+  overflow-wrap: anywhere;
+}
+
+.code-example,
+.code-example pre,
+.ai-answer-code {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .section,
+  .page-hero,
+  .about-grid,
+  .faq {
+    width: min(100% - 48px, 1172px);
+  }
+
+  .hero {
+    gap: 28px;
+  }
+
+  .book-grid,
+  .world-language-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .why-section {
+    padding-inline: 24px;
+  }
+
+  .footer-main {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .page-hero,
+  .about-grid,
+  .faq {
+    width: auto;
+    margin-inline: 18px;
+  }
+
+  .section {
+    width: auto;
+    margin-inline: 0;
+    padding-inline: 18px;
+    padding-block: 38px;
+  }
+
+  .featured {
+    padding-top: 32px;
+  }
+
+  .world-language-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .world-library .section-heading {
+    align-items: flex-start;
+  }
+
+  .world-book-drawer,
+  .book-drawer {
+    width: min(100%, 560px);
+    padding: 18px;
+    padding-bottom: max(18px, env(safe-area-inset-bottom));
+  }
+
+  .drawer-extra .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lesson-list {
+    grid-template-columns: 1fr;
+  }
+
+  .code-explanation li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rating-dialog,
+  .ai-dialog {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+
+  .rating-dialog {
+    padding: 24px 18px;
+  }
+
+  .ai-dialog {
+    height: calc(100dvh - 20px);
+  }
+
+  .ai-head {
+    gap: 10px;
+  }
+
+  .ai-head h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .ai-form {
+    margin-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 6px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+
+  .contact-button,
+  .rating-button {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .contact-button span,
+  .rating-button span {
+    font-size: 17px;
+  }
+
+  .ai-button {
+    min-width: 36px;
+    padding: 7px 8px;
+  }
+
+  .install-app-button {
+    padding: 6px;
+    font-size: 0;
+  }
+
+  .install-app-button::before {
+    content: 'تثبيت';
+    font-size: 10px;
+  }
+
+  .icon-button,
+  .menu-toggle {
+    font-size: 21px;
+    padding: 2px;
+  }
+
+  .main-nav {
+    top: 101px;
+  }
+
+  .hero h1 {
+    font-size: clamp(33px, 9vw, 43px);
+    letter-spacing: -1px;
+  }
+
+  .hero-art {
+    height: clamp(230px, 68vw, 310px);
+  }
+
+  .float-tag {
+    padding: 8px 9px;
+    font-size: 10px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(21px, 6vw, 25px);
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .book-card {
+    padding: 8px;
+  }
+
+  .book-art {
+    height: clamp(110px, 34vw, 150px);
+  }
+
+  .mini-cover {
+    width: 70px;
+    height: 100px;
+    padding: 9px;
+  }
+
+  .mini-cover strong {
+    font-size: 18px;
+  }
+
+  .book-info p {
+    height: auto;
+    min-height: 36px;
+  }
+
+  .world-language-grid {
+    gap: 8px;
+  }
+
+  .world-language-card h3 {
+    font-size: 14px;
+  }
+
+  .world-cover-image {
+    height: clamp(90px, 30vw, 120px);
+  }
+
+  .features,
+  .footer-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .catalog-controls,
+  .filters {
+    width: 100%;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .filter-button {
+    padding-inline: 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .catalog-search {
+    width: 100%;
+  }
+
+  .lesson-pagination {
+    gap: 6px;
+  }
+
+  .lesson-pagination .filter-button {
+    flex: 1;
+  }
+
+  .lesson-pagination span {
+    flex: 0 0 auto;
+  }
+
+  .course-progress {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header {
+    padding-inline: 8px;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .header-actions {
+    gap: 3px;
+  }
+
+  .contact-button,
+  .rating-button {
+    width: 30px;
+    min-width: 30px;
+    height: 32px;
+  }
+
+  .ai-button {
+    min-width: 32px;
+    padding-inline: 5px;
+  }
+
+  .hero,
+  .page-hero,
+  .about-grid,
+  .faq {
+    margin-inline: 12px;
+  }
+
+  .section {
+    padding-inline: 12px;
+  }
+
+  .book-grid,
+  .world-language-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .book-art {
+    height: 180px;
+  }
+
+  .world-cover-image {
+    height: 160px;
+  }
+
+  .hero-meta {
+    gap: 8px;
+    font-size: 10px;
+  }
+
+  .footer-bottom {
+    overflow-wrap: anywhere;
+  }
+}
 </style>
 </head>
 <body>
