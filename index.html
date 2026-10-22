@@ -166,8 +166,11 @@ render();
 <script>
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(error=>console.error('تعذر تشغيل وضع عدم الاتصال:',error)))}
 let deferredInstallPrompt=null;const installAppButton=document.querySelector('#install-app');
+const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const isStandalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+if(isIOS&&!isStandalone)installAppButton.hidden=false;
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredInstallPrompt=event;installAppButton.hidden=false});
-installAppButton.addEventListener('click',async()=>{if(!deferredInstallPrompt){toast('افتح القائمة في المتصفح واختر تثبيت التطبيق أو إضافته إلى الشاشة الرئيسية.');return}deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installAppButton.hidden=true});
+installAppButton.addEventListener('click',async()=>{if(isIOS){alert('لتثبيت التطبيق على iPhone: اضغط زر المشاركة في Safari، ثم اختر «إضافة إلى الشاشة الرئيسية»، وبعدها اضغط «إضافة».');return}if(!deferredInstallPrompt){toast('افتح قائمة المتصفح واختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».');return}deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installAppButton.hidden=true});
 window.addEventListener('appinstalled',()=>{installAppButton.hidden=true;toast('تم تثبيت مكتبة كود على جهازك')});
 </script></body>
 </html>
